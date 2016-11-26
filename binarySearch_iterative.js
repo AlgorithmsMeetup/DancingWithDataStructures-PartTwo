@@ -5,14 +5,17 @@
 var doSearch = function(array, targetValue) {
   var min = 0;
   var max = array.length - 1;
-    var guess;
-    var countGuesses = 0;
+  var guess;
+  var countGuesses = 0;
+
   while(max >= min) {
     guess = Math.floor((min + max) / 2);
     countGuesses++;
     if (array[guess] === targetValue) {
-        println(guess);
-        println(countGuesses);
+      
+      println(guess);
+      println(countGuesses);
+
       return guess;
     } else if (array[guess] < targetValue) {
       min = guess + 1;
