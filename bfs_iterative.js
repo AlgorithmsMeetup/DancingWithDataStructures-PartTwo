@@ -33,27 +33,26 @@ var doBFS = function(graph, source) {
     var queue = new Queue();
     queue.enqueue(source);
     // Traverse the graph
-    while (!queue.isEmpty()) {
-        var u = queue.dequeue();
 
+    // As long as the queue is not empty:
+    while (!queue.isEmpty()) {
+        //  Repeatedly dequeue a vertex u from the queue.
+        var u = queue.dequeue();
+        //  For each neighbor v of u that has not been visited:
         for (var i = 0; i < graph[u].length; i++) {
             var v = graph[u][i];
             
             if (bfsInfo[v].predecessor === null && bfsInfo[v].distance === null) {
+                //     Set distance to 1 greater than u's distance
                 bfsInfo[v].distance = 1 + bfsInfo[u].distance;
+                //     Set predecessor to u
                 bfsInfo[v].predecessor = u;
+                 //     Enqueue v
                 queue.enqueue(v);
             }
         }
     }
-    // As long as the queue is not empty:
-    //  Repeatedly dequeue a vertex u from the queue.
-    //  
-    //  For each neighbor v of u that has not been visited:
-    //     Set distance to 1 greater than u's distance
-    //     Set predecessor to u
-    //     Enqueue v
-    //
+    
     //  Hint:
     //  use graph to get the neighbors,
     //  use bfsInfo for distances and predecessors 
