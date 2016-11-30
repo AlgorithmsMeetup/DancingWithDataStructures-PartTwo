@@ -1,6 +1,7 @@
 var doSearch = function(array, target, min, max) {
-  min = min || 0;
-  max = max || array.length - 1;
+  min = (typeof min !== 'undefined') ?  min : 0;
+  max = (typeof max !== 'undefined') ?  max : array.length - 1;
+
   var guess = Math.floor((max + min) / 2);
   
   if (array[guess] === target) {
