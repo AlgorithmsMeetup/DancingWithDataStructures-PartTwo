@@ -7,7 +7,7 @@ var doSearch = function(array, target, min, max) {
     return guess;
   }
 
-  if (min > max) {
+  if (min >= max) {
     return -1;
   }
 
@@ -20,8 +20,9 @@ var doSearch = function(array, target, min, max) {
 var primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 
     41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97];
 
-console.assert(doSearch(primes, 73)); // 20
-console.assert(doSearch(primes, 7)); // 3
-console.assert(doSearch(primes, 83)); // 22
-console.assert(doSearch(primes, 6)); // -1
-console.assert(doSearch(primes, 84)); // -1
+console.assert(doSearch(primes, 73), 20); // 20
+console.assert(doSearch(primes, 7), 3); // 3
+console.assert(doSearch(primes, 83), 22); // 22
+console.assert(doSearch(primes, 6), -1); // -1
+console.assert(doSearch(primes, 84), -1); // -1
+console.assert(doSearch([], 2), -1); // -1
